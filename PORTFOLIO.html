@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            animation: fadeInUp 1s forwards;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        .section {
+            width: 85%;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            border-left: 5px solid #111;
+            padding-left: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .photo-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            cursor: pointer;
+            animation: fadeInUp 1s forwards;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-5px) scale(1.03);
+        }
+
+        .photo-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .caption {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #555;
+        }
+
+        footer {
+            background: #222;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+        }
+
+        /* CV Section */
+        .cv-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s forwards;
+        }
+
+        /* ---------- LIGHTBOX IMAGE VIEWER ---------- */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 15px;
+            animation: fadeInUp 0.5s;
+        }
+
+        #lightbox:active {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header class="fade-in">
+    <h1>Your Architecture Portfolio</h1>
+    <p>Business Management 1 • Architecture Practice & Insights</p>
+</header>
+
+<!-- Journey & Reflection -->
+<section class="section fade-in">
+    <h2 class="section-title">My Journey in Architecture & Business Management</h2>
+    <p>
+        This semester in Business Management 1 has broadened my understanding of the architectural profession. 
+        Beyond designing spaces, I have learned how architecture intersects with economics, clients, legalities, 
+        and real-world project management. These lessons helped me see architecture not only as an art, 
+        but also as a business built on trust, strategy, and responsibility.
+    </p>
+</section>
+
+<!-- Gallery -->
+<section class="section fade-in">
+    <h2 class="section-title">Project Gallery</h2>
+
+    <div class="gallery">
+
+        <div class="photo-card" onclick="openLightbox('my sketch.png')">
+            <img src="my sketch.png" alt="Project 1">
+            <p class="caption">archicad rendering</p>
+        </div>
+
+        <div class="photo-card" onclick="openLightbox('model 1.png')">
+            <img src="model 1.png" alt="Project 2">
+            <p class="caption">simple living room</p>
+        </div>
+
+        <div class="photo-card" onclick="openLightbox('rendering.png')">
+            <img src="rendering.png" alt="Project 3">
+            <p class="caption">2 storey residential</p>
+        </div>
+
+        <div class="photo-card" onclick="openLightbox('coffee.png')">
+            <img src="coffee.png" alt="Project 4">
+            <p class="caption">coffee shop</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Lightbox Viewer -->
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+</div>
+
+<!-- Personal Reflection -->
+<section class="section fade-in">
+    <h2 class="section-title">Personal Takeaways</h2>
+    <p>
+        Business Management 1 helped me realize that being an architect in the Philippines is not just about designing spaces; it is also about understanding how to run a sustainable practice in a competitive industry. Learning about project budgeting, client relations, contracts, and professional responsibilities made me see architecture as both a creative field and a business that requires strategy and discipline. It taught me that successful architects must balance artistry with financial awareness, manage resources wisely, and build trustworthy relationships with clients and collaborators. Most importantly, the course reminded me that good business management leads to better built environments, because when a firm is stable, it can focus on delivering ethical, high-quality, and socially responsible designs that truly serve Filipino communities.
+    </p>
+</section>
+
+<!-- CV SECTION -->
+<section class="section fade-in">
+    <h2 class="section-title">Curriculum Vitae</h2>
+
+    <div class="cv-section">
+        <h3>Christian John V. Francisco</h3>
+        <p>Email: christian00019@gmail.com</p>
+
+        <h3>Education</h3>
+        <p>BS Architecture — MAPUA UNIVERSITY (2022103010)</p>
+
+        <h3>Skills</h3>
+        <ul>
+            <li>Sketching</li>
+            <li>Model Making</li>
+            <li>AutoCAD / SketchUp / Revit</li>
+            <li>Graphic Design</li>
+        </ul>
+
+    </div>
+</section>
+
+<footer>
+    © 2025 Your Name • Architecture Portfolio
+</footer>
+
+<!-- LIGHTBOX SCRIPT -->
+<script>
+function openLightbox(imageSrc) {
+    document.getElementById("lightbox-img").src = imageSrc;
+    document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
